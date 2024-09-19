@@ -11,13 +11,14 @@ app = Flask(__name__)
 @app.route('/')
 
 def index():
-    return render_template ("index.html")
+    first_name = "John"
+    books = ["Story", "Programming Books", "Religious Books", 50]
+    return render_template ("index.html", first_name=first_name, books=books)
 
 @app.route('/user/<name>')
 
 def user(name):
-    return"<h1>Hi {}</>".format(name) 
-
+   return render_template ("test_user.html", name=name)
 
 
 
