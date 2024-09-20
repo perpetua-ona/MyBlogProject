@@ -20,5 +20,12 @@ def index():
 def user(name):
    return render_template ("test_user.html", name=name)
 
+# Custom Error Pages
+
+# Invalid Url
+@app.errorhandler (404)
+def page_not_found(e):
+    return render_template("error.html")
+
 
 
