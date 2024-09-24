@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% extends "base.html" %}
+    {% block content %}
+
+    {% for message in get_flashed_messages( ) %}
+        {{message}}
+    {%endfor%}
+    {% if name %}
+        <h1>{{ name }}</h1>
+    {% else %}
+        <h1> User List:</h1>
+        <br>
+        <form method="POST">
+            {{ form.hidden_tag ()}}
+
+            {{ form.name.label (Name) }}
+            {{ form.name () }}
+
+            {{ form.email.label ( Email) }}
+            {{ form.email () }}
+            <br>
+            {{ form.submit }}
+        </form>
+        <br>
+
+        {% for our_user in our_user%}
+        {{our_user.id}}.{{our_user.name}}.{{our_user.email}}
+        {%endfor%}
+        <br>
+    {% endif %}    
+    {% endblock %} 
+
+
+</body>
+</html>
+
+
